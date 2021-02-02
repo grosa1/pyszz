@@ -1,0 +1,22 @@
+### szz implementation
+szz_name: ra
+
+### obtain the diff only for the specified file extensions
+file_ext_to_parse:
+ - java
+
+### detect in diff deleted lines only, otherwise detect only the lines that are both deleted and added
+only_deleted_lines: true
+
+### ignore during blame all the commits specified in revs file
+# ignore_revs_file_path: /path/to/revs/file
+
+### ignores commits during blame with a change size higher than the specified value
+max_change_size: 20
+issue_date_filter: false
+
+### set -C param for blame to detect line moves/copies across:
+## SAME_COMMIT = 1
+## PARENT_COMMIT = 2
+## ANY_COMMIT = 3
+detect_move_from_other_files: 1
