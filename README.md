@@ -67,7 +67,7 @@ without issue date:
     - `conf/maszz.yaml`: runs MA-ZZ
     - `conf/raszz.yaml`: runs RA-ZZ
 
-- `repo-directory` is a folder which contains all the repositories that are required by `bug-fixes.json`. This parameter is not mandatory. In the case of the `repo-directory` is not specified, pyszz will download each repo required by each bug-fix commit in a temporary folder. In the other case, pyszz searchs for each required repository in the `repo-directory` folder. The directory structure must be the following:
+- `repo-directory` is a folder which contains all the repositories that are required by `bug-fixes.json`. This parameter is not mandatory. In the case of the `repo-directory` is not specified, pyszz will download each repo required by each bug-fix commit in a temporary folder. In the other case, pyszz searches for each required repository in the `repo-directory` folder. The directory structure must be the following:
 
 ``` bash
     .
