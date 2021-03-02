@@ -32,7 +32,7 @@ class DetectLineMoved(Enum):
 class AbstractSZZ(ABC):
     """
     AbstractSZZ is the base class for SZZ implementations. It has core methods for SZZ
-    like blame and and a diff parsing for impacted files. GitPython is used for base Git
+    like blame and a diff parsing for impacted files. GitPython is used for base Git
     commands and PyDriller to parse commit modifications.
     """
 
@@ -59,6 +59,7 @@ class AbstractSZZ(ABC):
                     log.error(f'unable to find local repository path: {repo_dir}')
                     exit(-4)
             else:
+                log.info(f"Cloning repository {repo_full_name}...")
                 Repo.clone_from(url=repo_url, to_path=self._repository_path)
 
         self._repository = Repo(self._repository_path)

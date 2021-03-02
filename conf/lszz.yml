@@ -13,6 +13,8 @@ szz_name: l
 
 ### detect in diff deleted lines only, otherwise detect only the lines that are both deleted and added
 only_deleted_lines: true
+
+### filter commits using issue_date field
 issue_date_filter: true
 
 ### ignore during blame all the commits specified in revs file

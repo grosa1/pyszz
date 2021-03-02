@@ -13,6 +13,8 @@ only_deleted_lines: true
 
 ### ignores commits during blame with a change size higher than the specified value
 max_change_size: 20
+
+### filter commits using issue_date field
 issue_date_filter: false
 
 ### set -C param for blame to detect line moves/copies across:

@@ -26,15 +26,16 @@ def main(input_json: str, out_json: str, conf: dict(), repos_dir: str):
     for i, commit in enumerate(bugfix_commits):
         bug_introducing_commits = set()
         repo_name = commit['repo_name']
-        repo_url = f'https://test:test@github.com/{repo_name}.git'
+        repo_url = f'https://test:test@github.com/{repo_name}.git'  # using test:test as git login to skip private repos during clone
         fix_commit = commit['fix_commit_hash']
 
         log.info(f'{i + 1} of {tot}: {repo_name} {fix_commit}')
         
-        earliest_issue_date      = commit['earliest_issue_date'] if 'earliest_issue_date' in commit else commit['best_scenario_issue_date']
-
-        commit_issue_date = (earliest_issue_date or best_scenario_issue_date) + " UTC"
-        commit_issue_date = dateparser.parse(commit_issue_date).timestamp()
+        commit_issue_date = None
+        if 'earliest_issue_date' in commit or 'best_scenario_issue_date' in commit:
+            earliest_issue_date = commit['earliest_issue_date'] if 'earliest_issue_date' in commit else commit['best_scenario_issue_date']
+            commit_issue_date = (earliest_issue_date or best_scenario_issue_date) + " UTC"
+            commit_issue_date = dateparser.parse(commit_issue_date).timestamp()
         
         szz_name = conf['szz_name']
         if szz_name == 'b':
@@ -112,12 +113,13 @@ def main(input_json: str, out_json: str, conf: dict(), repos_dir: str):
 
 
 if __name__ == "__main__":
-    if len(sys.argv) < 4:
-        print('USAGE: python main.py <bugfix_commits.json> <conf_file path> <repos_directory>')
+    if (len(sys.argv) > 0 and '--help' in sys.argv[1]) or len(sys.argv) < 3:
+        print('USAGE: python main.py <bugfix_commits.json> <conf_file path> <repos_directory(optional)>')
+        print('If repos_directory is not set, pyszz will download each repository')
         exit(-1)
     input_json = sys.argv[1]
     conf_file = sys.argv[2]
-    repos_dir = sys.argv[3]
+    repos_dir = sys.argv[3] if len(sys.argv) > 3 else None
 
     if not os.path.isfile(input_json):
         log.error('invalid input json')
