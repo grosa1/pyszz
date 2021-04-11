@@ -87,3 +87,14 @@ The `test` directory contains some usage examples of pyszz and test cases.
 - `start_test_lszz.sh` and `start_test_rszz.sh` are test cases for L-SZZ and R-SZZ; 
 - `repos_test.zip` and `repos_test_with_issues.zip` contain some downloaded repositories to be used with `bugfix_commits_test.json` and `bugfix_commits_with_issues_test.json` , which are two examples of input json containing bug-fixing commits;
 - `comment_parser` contains some test cases for the custom comment parser implemented in pyszz.
+
+## How to cite
+```
+@INPROCEEDINGS{rosa2021evaluating,
+  author={Rosa, Giovanni and Pascarella, Luca and Scalabrino, Simone and Tufano, Rosalia and Bavota, Gabriele and Lanza, Michele and Oliveto, Rocco},
+  booktitle={2021 IEEE/ACM 43rd International Conference on Software Engineering (ICSE)}, 
+  title={Evaluating SZZ Implementations Through a Developer-informed Oracle}, 
+  year={2021},
+  pages={To Appear}
+}
+```
