@@ -90,11 +90,12 @@ The `test` directory contains some usage examples of pyszz and test cases.
 
 ## How to cite
 ```
-@INPROCEEDINGS{rosa2021evaluating,
+@inproceedings{rosa2021evaluating,
+  title={Evaluating SZZ Implementations Through a Developer-informed Oracle},
   author={Rosa, Giovanni and Pascarella, Luca and Scalabrino, Simone and Tufano, Rosalia and Bavota, Gabriele and Lanza, Michele and Oliveto, Rocco},
-  booktitle={2021 IEEE/ACM 43rd International Conference on Software Engineering (ICSE)}, 
-  title={Evaluating SZZ Implementations Through a Developer-informed Oracle}, 
+  booktitle={2021 IEEE/ACM 43rd International Conference on Software Engineering (ICSE)},
+  pages={436--447},
   year={2021},
-  pages={To Appear}
+  organization={IEEE}
 }
 ```
