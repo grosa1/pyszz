@@ -22,7 +22,7 @@ python3 main.py /path/to/bug-fixes.json /path/to/configuration-file.yml /path/to
 ```
 where:
 
-- `bug-fixes.json` contains a list of information about bug-fixing commits and (optionally) issues. 
+- `bug-fixes.json` contains a list of information about bug-fixing commits and (optionally) issues <sup>[1](#myfootnote1)</sup>. 
 This is an example json that can be used with pyszz:
 ```
 [
@@ -48,7 +48,7 @@ alternatively:
 ]
 ```
 
-without issue date:
+without issue date <sup>[1](#myfootnote1)</sup>:
 
 ```
 [
@@ -79,7 +79,9 @@ without issue date:
 
 To have different run configurations, just create or edit the configuration files. The available parameters are described in each yml file. In order to use the issue date filter, you have to enable the parameter provided in each configuration file.
 
-_n.b. the difference between `best_scenario_issue_date` and `earliest_issue_date` is described in our [paper](https://arxiv.org/abs/2102.03300). Simply, you can use `earliest_issue_date` if you have the date of the issue linked to the bug-fix commit._
+**N.B.** _the difference between `best_scenario_issue_date` and `earliest_issue_date` is described in our [paper](https://arxiv.org/abs/2102.03300). Simply, you can use `earliest_issue_date` if you have the date of the issue linked to the bug-fix commit._
+
+**<a name="myfootnote1"><sup>1</sup></a>** You need to edit the flag `issue_date_filter` provided in the configuration files at `conf/` in order to enable/disable the issue date filter for SZZ.
 
 ## Quick start
 The `test` directory contains some usage examples of pyszz and test cases.
