@@ -47,6 +47,7 @@ class AbstractSZZ(ABC):
         :param str repo_url: url of the Git repository to clone
         :param str repos_dir: temp folder where to clone the given repo
         """
+        self._repository = None
 
         self.__temp_dir = mkdtemp(dir=os.getcwd())
         self._repository_path = os.path.join(self.__temp_dir, repo_full_name.replace('/', '_'))
@@ -273,11 +274,9 @@ class AbstractSZZ(ABC):
 
     def __clear_gitpython(self):
         """ Cleanup of GitPython due to memory problems """
-        try:
+        if self._repository:
             self._repository.close()
             self._repository.__del__()
-        except AttributeError:
-            log.error(traceback.format_exc())
 class ImpactedFile:
     """ Data class to represent impacted files """
     def __init__(self, file_path: str, modified_lines: List[int]):
