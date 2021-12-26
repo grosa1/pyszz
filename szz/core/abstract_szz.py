@@ -7,7 +7,7 @@ from enum import Enum
 from shutil import rmtree
 from typing import List, Set
 from tempfile import mkdtemp
-
+import traceback
 from git import Commit, Repo
 from pydriller import ModificationType, GitRepository as PyDrillerGitRepo
 
@@ -273,10 +273,11 @@ class AbstractSZZ(ABC):
 
     def __clear_gitpython(self):
         """ Cleanup of GitPython due to memory problems """
-        self._repository.close()
-        self._repository.__del__()
-
-
+        try:
+            self._repository.close()
+            self._repository.__del__()
+        except AttributeError:
+            log.error(traceback.format_exc())
 class ImpactedFile:
     """ Data class to represent impacted files """
     def __init__(self, file_path: str, modified_lines: List[int]):

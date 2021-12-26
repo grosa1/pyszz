@@ -32,8 +32,9 @@ def main(input_json: str, out_json: str, conf: dict(), repos_dir: str):
         log.info(f'{i + 1} of {tot}: {repo_name} {fix_commit}')
         
         commit_issue_date = None
-        if 'earliest_issue_date' in commit or 'best_scenario_issue_date' in commit:
-            earliest_issue_date = commit['earliest_issue_date'] if 'earliest_issue_date' in commit else commit['best_scenario_issue_date']
+        if conf.get('issue_date_filter', None):
+            earliest_issue_date = commit.get('earliest_issue_date', None)
+            best_scenario_issue_date = commit.get('best_scenario_issue_date', None)
             commit_issue_date = (earliest_issue_date or best_scenario_issue_date) + " UTC"
             commit_issue_date = dateparser.parse(commit_issue_date).timestamp()
         
