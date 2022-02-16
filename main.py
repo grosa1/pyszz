@@ -34,7 +34,7 @@ def main(input_json: str, out_json: str, conf: dict(), repos_dir: str):
         commit_issue_date = None
         if conf.get('issue_date_filter', None):
             commit_issue_date = (commit.get('earliest_issue_date', None) or commit.get('best_scenario_issue_date', None))
-            commit_issue_date = dateparser.parse(commit_issue_date, settings={'TIMEZONE': 'UTC', 'RETURN_AS_TIMEZONE_AWARE': True}).timestamp()
+            commit_issue_date = dateparser.parse(commit_issue_date).timestamp()
         
         szz_name = conf['szz_name']
         if szz_name == 'b':
