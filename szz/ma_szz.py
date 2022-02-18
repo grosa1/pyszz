@@ -128,7 +128,7 @@ class MASZZ(AGSZZ):
             
         if 'issue_date_filter' in kwargs and kwargs['issue_date_filter']:
             before = len(bic)
-            bic = [c for c in bic if c.committed_date <= kwargs['issue_date']]
+            bic = [c for c in bic if c.authored_date <= kwargs['issue_date']]
             log.info(f'Filtering by issue date returned {len(bic)} out of {before}')
         else:
             log.info("Not filtering by issue date.")

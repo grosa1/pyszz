@@ -52,7 +52,7 @@ class BaseSZZ(AbstractSZZ):
 
         if 'issue_date_filter' in kwargs and kwargs['issue_date_filter']:
             before = len(bug_introd_commits)
-            bug_introd_commits = [c for c in bug_introd_commits if c.committed_date <= kwargs['issue_date']]
+            bug_introd_commits = [c for c in bug_introd_commits if c.authored_date <= kwargs['issue_date']]
             log.info(f'Filtering by issue date returned {len(bug_introd_commits)} out of {before}')
         else:
             log.info("Not filtering by issue date.")
