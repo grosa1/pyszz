@@ -37,7 +37,7 @@ class AGSZZ(AbstractSZZ):
         blame_data = set()
         for imp_file in impacted_files:
             try:
-                blame_data = self._blame(
+                blame_info = self._blame(
                     rev='HEAD^',
                     file_path=imp_file.file_path,
                     modified_lines=imp_file.modified_lines,
@@ -47,7 +47,7 @@ class AGSZZ(AbstractSZZ):
                 )
             except:
                 print(traceback.format_exc())
-
+            blame_data.update(blame_info)
         return blame_data
 
     # TODO: add type check on kwargs
@@ -105,5 +105,5 @@ class AGSZZ(AbstractSZZ):
             log.info(f'Filtering by issue date returned {len(bic)} out of {before}')
         else:
             log.info("Not filtering by issue date.")
-            
+        
         return bic
