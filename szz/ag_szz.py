@@ -45,9 +45,9 @@ class AGSZZ(AbstractSZZ):
                     skip_comments=True,
                     **kwargs
                 )
+                blame_data.update(blame_info)
             except:
                 print(traceback.format_exc())
-            blame_data.update(blame_info)
         return blame_data
 
     # TODO: add type check on kwargs
