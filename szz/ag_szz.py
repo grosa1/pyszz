@@ -47,7 +47,7 @@ class AGSZZ(AbstractSZZ):
                 )
                 blame_data.update(blame_info)
             except:
-                print(traceback.format_exc())
+                log.error(traceback.format_exc())
         return blame_data
 
     # TODO: add type check on kwargs
