@@ -1,3 +1,5 @@
+# [NOTE: For newer studies, please use the extendend version (PySZZ v2)](https://github.com/grosa1/pyszz_v2)
+------------------
 # PySZZ
 This is an open-source implementation of several versions of the SZZ algorithm for detecting bug-inducing commits.
 
